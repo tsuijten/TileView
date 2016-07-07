@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -115,24 +116,10 @@ public class ZoomPanLayout extends ViewGroup implements
    */
   @Override
   protected void onLayout( boolean changed, int l, int t, int r, int b ) {
-    final int width = getWidth();
-    final int height = getHeight();
-
-    int translateX = 0;
-    int translateY = 0;
-
-    if( mScaledWidth < width ) {
-      translateX = width / 2 - mScaledWidth / 2;
-    }
-
-    if( mScaledHeight < height ) {
-      translateY = height / 2 - mScaledHeight / 2;
-    }
-
     for( int i = 0; i < getChildCount(); i++ ) {
       View child = getChildAt( i );
       if( child.getVisibility() != GONE ) {
-        child.layout( translateX, translateY, mScaledWidth + translateX, mScaledHeight + translateY );
+        child.layout( 0, 0, mScaledWidth, mScaledHeight);
       }
     }
     calculateMinimumScaleToFit();
@@ -353,6 +340,7 @@ public class ZoomPanLayout extends ViewGroup implements
    * @param y Vertical destination point.
    */
   public void scrollToAndCenter( int x, int y ) {
+    Log.d("thijs", x + " " + y);
     scrollTo( x - getHalfWidth(), y - getHalfHeight() );
   }
 

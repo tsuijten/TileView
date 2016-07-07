@@ -28,19 +28,19 @@ public class TileViewActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
-		tileView.pause();
+//		tileView.pause();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		tileView.resume();
+//		tileView.resume();
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		tileView.destroy();
+//		tileView.destroy();
 		tileView = null;
 	}
 	
@@ -52,12 +52,12 @@ public class TileViewActivity extends Activity {
 	 * This is a convenience method to scrollToAndCenter after layout (which won't happen if called directly in onCreate
 	 * see https://github.com/moagrius/TileView/wiki/FAQ
 	 */
-	public void frameTo( final double x, final double y ) {
-		getTileView().post( new Runnable() {
-			@Override
-			public void run() {
-				getTileView().scrollToAndCenter( x, y );
-			}			
-		});		
-	}
+//	public void frameTo( final double x, final double y ) {
+//		getTileView().post( new Runnable() {
+//			@Override
+//			public void run() {
+//				getTileView().scrollToAndCenter( x, y );
+//			}
+//		});
+//	}
 }
